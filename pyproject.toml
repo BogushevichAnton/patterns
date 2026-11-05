@@ -26,3 +26,25 @@ dev = [
 test = [
     "pytest>=9.2.0",
 ]
+
+[tool.ruff]
+line-length = 88
+exclude = [
+    ".git",
+    ".venv",
+    "build",
+    "dist",
+    "migrations",
+    "test",
+    ".ruff_cache",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "E501",
+    "F",
+]
+
+[tool.ruff.format]
+docstring-code-format = true
