@@ -1,0 +1,8 @@
+fastapi:
+  title: "patterns of programming"
+
+db:
+  host: localhost
+  port: 8080
+  debug: False
+  workers: 1
