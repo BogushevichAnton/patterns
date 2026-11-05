@@ -153,6 +153,7 @@ activemq-data/
 .env
 .envrc
 .venv
+config.yaml
 env/
 venv/
 ENV/
