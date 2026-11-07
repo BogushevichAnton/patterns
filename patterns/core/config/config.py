@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, SecretStr
 from .loader import PrivateLoader, PublicLoader
 from pydantic_settings import SettingsConfigDict
 
@@ -17,6 +17,8 @@ class PrivateDB(PrivateLoader):
     model_config = SettingsConfigDict(
         env_prefix="DB__",
     )
+    user: str
+    password: SecretStr
 
 
 class DatabaseConfig(BaseModel):
