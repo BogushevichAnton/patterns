@@ -9,4 +9,10 @@ fastapi_app = FastAPI(
 )
 
 if __name__ == "__main__":
-    uvicorn.run("patterns.main:fastapi_app", host="localhost", port=8080)
+    uvicorn.run(
+        "patterns.main:fastapi_app",
+        host=settings.uvicorn.host,
+        port=settings.uvicorn.port,
+        reload=settings.uvicorn.debug,
+        workers=settings.uvicorn.workers,
+    )

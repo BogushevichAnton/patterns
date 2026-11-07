@@ -22,6 +22,14 @@ class FastAPIConfig(PublicLoader):
             raise
 
 
+class UvicornConfig(PublicLoader):
+    model_config = SettingsConfigDict(yaml_config_section="uvicorn")
+    host: str
+    port: int
+    debug: bool
+    workers: int
+
+
 class PublicDB(PublicLoader):
     model_config = SettingsConfigDict(yaml_config_section="db")
     host: str
