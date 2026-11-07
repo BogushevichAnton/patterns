@@ -1,5 +1,10 @@
 from patterns.utils import SingletonMeta
+from patterns.core.config import DatabaseConfig, FastAPIConfig
 
 
 class Settings(metaclass=SingletonMeta):
-    pass
+    db: DatabaseConfig = DatabaseConfig()
+    fastapi: FastAPIConfig = FastAPIConfig()
+
+
+settings = Settings()
