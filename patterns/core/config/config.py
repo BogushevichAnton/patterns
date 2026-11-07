@@ -24,14 +24,3 @@ class PrivateDB(PrivateLoader):
 class DatabaseConfig(BaseModel):
     private_config: PrivateDB = PrivateDB()
     public_config: PublicDB = PublicDB()
-
-
-# class GlobalConfig(BaseModel):
-#     db: DatabaseConfig
-#     fastapi: FastAPIConfig
-
-
-# settings = GlobalConfig(
-#     db=DatabaseConfig(private_config=PrivateDB(), public_config=PublicDB()),
-#     fastapi=FastAPIConfig(),
-# )
