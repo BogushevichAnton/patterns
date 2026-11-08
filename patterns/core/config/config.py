@@ -46,6 +46,7 @@ class LoggerConfig(PublicLoader):
 class PublicDB(PublicLoader):
     model_config = SettingsConfigDict(yaml_config_section="db")
     host: str
+    name: str
 
 
 class PrivateDB(PrivateLoader):
