@@ -1,7 +1,9 @@
+"""Модуль загрузчика конфигурации."""
+
 from pydantic_settings import (
     BaseSettings,
-    SettingsConfigDict,
     PydanticBaseSettingsSource,
+    SettingsConfigDict,
     YamlConfigSettingsSource,
 )
 

@@ -1,7 +1,15 @@
+"""Модуль конфигурационных параметров приложения.
+
+Содержит Pydantic-модели или dataclasses для валидации и структурирования
+настроек базы данных, FastAPI, логирования и Uvicorn.
+"""
+
+from importlib.metadata import PackageNotFoundError, version
+
 from pydantic import BaseModel, SecretStr, computed_field
-from .loader import PrivateLoader, PublicLoader
 from pydantic_settings import SettingsConfigDict
-from importlib.metadata import version, PackageNotFoundError
+
+from .loader import PrivateLoader, PublicLoader
 
 
 class FastAPIConfig(PublicLoader):
@@ -28,6 +36,11 @@ class UvicornConfig(PublicLoader):
     port: int
     debug: bool
     workers: int
+
+
+class LoggerConfig(PublicLoader):
+    model_config = SettingsConfigDict(yaml_config_section="logger")
+    level: str
 
 
 class PublicDB(PublicLoader):

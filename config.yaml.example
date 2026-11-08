@@ -1,8 +1,16 @@
 fastapi:
-  title: "patterns of programming"
+  title: "patterns"
+  description: "first project"
 
 db:
-  host: localhost
+  HOST: localhost
   port: 8080
+
+uvicorn:
+  host: localhost
+  port: 8089
   debug: False
   workers: 1
+
+logger:
+  level: info

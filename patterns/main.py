@@ -1,5 +1,8 @@
+"""Точка входа в приложение."""
+
 import uvicorn
 from fastapi import FastAPI
+
 from patterns.core import settings
 
 fastapi_app = FastAPI(
