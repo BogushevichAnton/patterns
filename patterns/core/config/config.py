@@ -6,7 +6,7 @@
 
 from importlib.metadata import PackageNotFoundError, version
 
-from pydantic import BaseModel, SecretStr, computed_field
+from pydantic import BaseModel, SecretStr, computed_field, PostgresDsn
 from pydantic_settings import SettingsConfigDict
 
 from .loader import PrivateLoader, PublicLoader
@@ -46,6 +46,7 @@ class LoggerConfig(PublicLoader):
 class PublicDB(PublicLoader):
     model_config = SettingsConfigDict(yaml_config_section="db")
     host: str
+    port: int
     name: str
 
 
@@ -60,3 +61,12 @@ class PrivateDB(PrivateLoader):
 class DatabaseConfig(BaseModel):
     private_config: PrivateDB = PrivateDB()
     public_config: PublicDB = PublicDB()
+
+    @computed_field
+    @property
+    def url(self) -> str:
+        """Поле url для подключения к БД."""
+        url: PostgresDsn = (
+            f"postgresql+asyncpg://{self.private_config.user}:{self.private_config.password}@{self.public_config.host}:{self.public_config.port}/{self.public_config.name}"
+        )
+        return str(url)
