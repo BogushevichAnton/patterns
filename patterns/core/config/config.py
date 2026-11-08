@@ -6,7 +6,7 @@
 
 from importlib.metadata import PackageNotFoundError, version
 
-from pydantic import BaseModel, SecretStr, computed_field, PostgresDsn
+from pydantic import BaseModel, PostgresDsn, SecretStr, computed_field
 from pydantic_settings import SettingsConfigDict
 
 from .loader import PrivateLoader, PublicLoader
