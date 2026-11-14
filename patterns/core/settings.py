@@ -2,13 +2,13 @@
 
 import logging
 
-from patterns.core.config import (
+from .config import (
     DatabaseConfig,
     FastAPIConfig,
     LoggerConfig,
     UvicornConfig,
 )
-from patterns.utils import SingletonMeta, type_logger
+from .utils import SingletonMeta, type_logger
 
 logger1 = logging.getLogger()
 
