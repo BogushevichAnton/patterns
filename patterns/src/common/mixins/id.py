@@ -1,3 +1,5 @@
+"""Миксин для поля id."""
+
 from sqlalchemy.orm import Mapped, mapped_column
 
 
