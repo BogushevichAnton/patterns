@@ -2,7 +2,7 @@
 
 from fastapi import FastAPI
 
-from patterns.core import settings
+from patterns.core.settings import settings
 
 from .lifespan import lifespan
 from .middleware import setup_cors
