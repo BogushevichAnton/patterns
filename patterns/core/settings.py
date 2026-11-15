@@ -14,18 +14,19 @@ logger1 = logging.getLogger()
 
 
 class Settings(metaclass=SingletonMeta):
-    logger1.info("Инициализация настроек...")
+    def __init__(self) -> None:
+        logger1.info("Инициализация настроек...")
 
-    logger: LoggerConfig = LoggerConfig()
+        self.logger: LoggerConfig = LoggerConfig()
 
-    logger1.debug("Инициализация настроек логирования...")
-    type_logger.setup_logger(level=logger.level)
-    logger1.debug("Инициализация настроек логирования завершена успешно!")
+        logger1.debug("Инициализация настроек логирования...")
+        type_logger.setup_logger(level=self.logger.level)
+        logger1.debug("Инициализация настроек логирования завершена успешно!")
 
-    db: DatabaseConfig = DatabaseConfig()
-    fastapi: FastAPIConfig = FastAPIConfig()
-    uvicorn: UvicornConfig = UvicornConfig()
-    logger1.info("Инициализация настроек завершена успешно!")
+        self.db: DatabaseConfig = DatabaseConfig()
+        self.fastapi: FastAPIConfig = FastAPIConfig()
+        self.uvicorn: UvicornConfig = UvicornConfig()
+        logger1.info("Инициализация настроек завершена успешно!")
 
 
 settings = Settings()
