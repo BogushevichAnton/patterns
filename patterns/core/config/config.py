@@ -62,11 +62,11 @@ class DatabaseConfig(BaseModel):
     private_config: PrivateDB = PrivateDB()
     public_config: PublicDB = PublicDB()
 
-    @computed_field
+    @computed_field(repr=False)
     @property
     def url(self) -> str:
         """Поле url для подключения к БД."""
         url: PostgresDsn = (
-            f"postgresql+asyncpg://{self.private_config.user}:{self.private_config.password}@{self.public_config.host}:{self.public_config.port}/{self.public_config.name}"
+            f"postgresql+asyncpg://{self.private_config.user}:{self.private_config.password.get_secret_value()}@{self.public_config.host}:{self.public_config.port}/{self.public_config.name}"
         )
         return str(url)
