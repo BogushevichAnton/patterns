@@ -1,14 +1,14 @@
 """init.
 
-Revision ID: 73e5823b2950
+Revision ID: 2fc942af851e
 Revises:
-Create Date: 2026-11-15 19:27:43.347878
+Create Date: 2026-11-15 19:34:25.677269
 
 """
 
 from collections.abc import Sequence
 
-revision: str = "73e5823b2950"
+revision: str = "2fc942af851e"
 down_revision: str | Sequence[str] | None = None
 branch_labels: str | Sequence[str] | None = None
 depends_on: str | Sequence[str] | None = None
