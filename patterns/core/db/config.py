@@ -5,8 +5,8 @@ from contextlib import asynccontextmanager
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from patterns.core import settings
 from patterns.core.config import DatabaseConfig
+from patterns.core.settings import settings
 from patterns.core.utils import SingletonMeta
 
 
