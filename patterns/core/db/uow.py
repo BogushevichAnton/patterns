@@ -1,7 +1,8 @@
 """Реализация паттерна Unit of Work."""
 
 import logging
-from typing import Any, Self
+from types import TracebackType
+from typing import Self
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -36,7 +37,7 @@ class DbUoW:
         self,
         exc_type: type[BaseException] | None,
         exc_val: BaseException | None,
-        exc_tb: Any,
+        exc_tb: TracebackType | None,
     ) -> None:
         """
         Выход из контекстного менеджера.
