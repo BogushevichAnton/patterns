@@ -1,0 +1,17 @@
+fastapi:
+  title: "patterns"
+  description: "first project"
+
+db:
+  host: localhost
+  port: 8080
+  name: mydb
+
+uvicorn:
+  host: localhost
+  port: 8089
+  debug: False
+  workers: 4
+
+logger:
+  level: clear
