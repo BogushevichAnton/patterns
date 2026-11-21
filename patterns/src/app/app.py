@@ -3,6 +3,7 @@
 from fastapi import FastAPI
 
 from patterns.core.settings import settings
+from patterns.src.api import api_router
 
 from .lifespan import lifespan
 from .middleware import setup_cors
@@ -17,7 +18,7 @@ def create_app():
     )
 
     setup_cors(fastapi_app)
-
+    fastapi_app.include_router(api_router)
     return fastapi_app
 
 
