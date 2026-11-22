@@ -3,17 +3,18 @@
 from patterns.src.common.protocol import UoW
 
 from .repository import NoteRepository
-from .schemas import Note
+from .schemas import Note, NoteRequest
 
 
 class NoteService:
 
-    def __init__(self, db_uow: UoW) -> None:
+    def __init__(self, *, db_uow: UoW, repository: NoteRepository) -> None:
         self._db_uow = db_uow
-        self._repository = NoteRepository(self._db_uow.session)
+        self._repository = repository
 
     async def get_notes(
         self,
+        *,
         offset: int = 0,
         limit: int = 10,
         sort_by: str = "id",
@@ -27,7 +28,7 @@ class NoteService:
         )
         return [Note.model_validate(note) for note in notes_orm]
 
-    async def create(self, note: Note) -> Note:
+    async def create(self, *, note: NoteRequest) -> Note:
         async with self._db_uow:
             note_orm = await self._repository.create(
                 title=note.title,

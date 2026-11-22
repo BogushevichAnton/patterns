@@ -4,7 +4,6 @@ import uvicorn
 
 from patterns.core.settings import settings
 
-print(settings)
 if __name__ == "__main__":
     uvicorn.run(
         "patterns.src.app.app:app",

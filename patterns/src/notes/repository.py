@@ -10,11 +10,12 @@ from .domain import Note
 
 class NoteRepository:
 
-    def __init__(self, session: AsyncSession) -> None:
+    def __init__(self, *, session: AsyncSession) -> None:
         self._session = session
 
     async def get_notes(
         self,
+        *,
         offset: int = 0,
         limit: int = 10,
         sort_by: str = "id",

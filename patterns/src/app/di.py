@@ -5,11 +5,12 @@ from typing import Annotated
 from fastapi import Depends
 
 from patterns.core.db.di import UoWDep
+from patterns.src.notes.repository import NoteRepository
 from patterns.src.notes.service import NoteService
 
 
 def get_note_service(db_uow: UoWDep) -> NoteService:
-    return NoteService(db_uow=db_uow)
+    return NoteService(db_uow=db_uow, repository=NoteRepository(session=db_uow.session))
 
 
 NoteServiceDep = Annotated[NoteService, Depends(get_note_service)]
